@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.helloar"
+        minSdkVersion 25
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+}
+
+
+sceneform.asset('sampledata/Desk.obj',
+        'default',
+        'sampledata/Desk.sfa',
+        'src/main/assets/Desk')
+
+sceneform.asset('sampledata/Armchair.obj',
+        'default',
+        'sampledata/Armchair.sfa',
+        'src/main/assets/Armchair')
+
+sceneform.asset('sampledata/Bed.obj',
+        'default',
+        'sampledata/Bed.sfa',
+        'src/main/assets/Bed')
+sceneform.asset('sampledata/Couch.obj',
+        'default',
+        'sampledata/Couch.sfa',
+        'src/main/assets/Couch')
+sceneform.asset('sampledata/Fluffy_Chair.obj',
+        'default',
+        'sampledata/Fluffy_Chair.sfa',
+        'src/main/assets/Fluffy_Chair')
+sceneform.asset('sampledata/Long_Couch.obj',
+        'default',
+        'sampledata/Long_Couch.sfa',
+        'src/main/assets/Long_Couch')
+sceneform.asset('sampledata/TV_Table.obj',
+        'default',
+        'sampledata/TV_Table.sfa',
+        'src/main/assets/TV_Table')
+sceneform.asset('sampledata/Bookshelf.obj',
+        'default',
+        'sampledata/Bookshelf.sfa',
+        'src/main/assets/Bookshelf')
