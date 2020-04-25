@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         TV_TABLE
     }
 
+
     private Models models = Models.DESK;
 
     @Override
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         Button Fluffy_Chair=findViewById(R.id.Fluffy_Chair);
         Button Long_Couch=findViewById(R.id.Long_Couch);
         Button TV_Table=findViewById(R.id.TV_Table);
+
 
 
 
