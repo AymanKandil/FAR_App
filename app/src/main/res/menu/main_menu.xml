@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="3-D objects">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_chair"
+                    android:icon="@drawable/chair_png"
+                    android:title="@string/navi_chair" />
+                <item
+                    android:id="@+id/nav_bed"
+                    android:icon="@drawable/bed_png"
+                    android:title="@string/navi_bed" />
+                <item
+                    android:id="@+id/nav_desk"
+                    android:icon="@drawable/desk_png"
+                    android:title="@string/navi_desk" />
+
+            </group>
+        </menu>
+    </item>
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/navi_profile" />
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/navi_login" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/navi_logout" />
+            </group>
+        </menu>
+    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_items"
+            android:icon="@drawable/itemselected_png"
+            android:title="@string/navi_items" />
+        <item
+            android:id="@+id/nav_story"
+            android:icon="@drawable/ourstory_png"
+            android:title="@string/navi_story"
+            />
+    </group>
 
 </menu>

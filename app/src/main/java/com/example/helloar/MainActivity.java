@@ -2,6 +2,7 @@ package com.example.helloar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.ArSceneView;
@@ -34,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ArFragment arFragment;
     AnchorNode anchorNode;
-    
 
-
-    private enum Models{
+    private enum Models {
         DESK,
         CHAIR,
         BED,
@@ -48,8 +48,11 @@ public class MainActivity extends AppCompatActivity {
         TV_TABLE
     }
 
-
     private Models models = Models.DESK;
+
+    //Drawer Menu
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,54 +66,55 @@ public class MainActivity extends AppCompatActivity {
         Button Clear = findViewById(R.id.Clear);
         Button Bed = findViewById(R.id.Bed);
         Button Bookshelf = findViewById(R.id.Bookshelf);
-        Button Couch=findViewById(R.id.Couch);
-        Button Fluffy_Chair=findViewById(R.id.Fluffy_Chair);
-        Button Long_Couch=findViewById(R.id.Long_Couch);
-        Button TV_Table=findViewById(R.id.TV_Table);
+        Button Couch = findViewById(R.id.Couch);
+        Button Fluffy_Chair = findViewById(R.id.Fluffy_Chair);
+        Button Long_Couch = findViewById(R.id.Long_Couch);
+        Button TV_Table = findViewById(R.id.TV_Table);
 
+        //Menu Hooks
+        drawerLayout=findViewById(R.id.drawer_layout);
+        navigationView=findViewById(R.id.navigation_view);
 
-
-
+        //Navigation Drawer
+        navigationView.bringToFront();
 
 
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             //Anchor anchor1 = hitResult.createAnchor();
-           // Anchor anchor2 = hitResult.createAnchor();
+            // Anchor anchor2 = hitResult.createAnchor();
             //Anchor anchor3=hitResult.createAnchor();
-           // Anchor anchor4=hitResult.createAnchor();
+            // Anchor anchor4=hitResult.createAnchor();
             if (models == Models.DESK)
                 placeDesk(hitResult.createAnchor());
-            else if (models==Models.CHAIR)
+            else if (models == Models.CHAIR)
                 placeChair(hitResult.createAnchor());
-            else if (models==Models.BED)
+            else if (models == Models.BED)
                 placeBed(hitResult.createAnchor());
-            else if (models==Models.BOOKSHELF)
+            else if (models == Models.BOOKSHELF)
                 placeBookshelf(hitResult.createAnchor());
-            else if (models==Models.COUCH)
+            else if (models == Models.COUCH)
                 placeCouch(hitResult.createAnchor());
-            else if (models==Models.FLUFFY_CHAIR)
+            else if (models == Models.FLUFFY_CHAIR)
                 placeFluffyChair(hitResult.createAnchor());
-            else if (models==Models.LONG_COUCH)
+            else if (models == Models.LONG_COUCH)
                 placeLongCouch(hitResult.createAnchor());
-            else if (models==Models.TV_TABLE)
+            else if (models == Models.TV_TABLE)
                 placeTVTable(hitResult.createAnchor());
         });
 
-        Desk.setOnClickListener(view->models = Models.DESK);
-        Chair.setOnClickListener(view->models = Models.CHAIR);
-        Bed.setOnClickListener(view->models=Models.BED);
-        Bookshelf.setOnClickListener(view->models=Models.BOOKSHELF);
-        Couch.setOnClickListener(view->models=Models.COUCH);
-        Fluffy_Chair.setOnClickListener(view->models=Models.FLUFFY_CHAIR);
-        Long_Couch.setOnClickListener(view->models=Models.LONG_COUCH);
-        TV_Table.setOnClickListener(view->models=Models.TV_TABLE);
-        Clear.setOnClickListener(view->removeAnchorNode());
+        Desk.setOnClickListener(view -> models = Models.DESK);
+        Chair.setOnClickListener(view -> models = Models.CHAIR);
+        Bed.setOnClickListener(view -> models = Models.BED);
+        Bookshelf.setOnClickListener(view -> models = Models.BOOKSHELF);
+        Couch.setOnClickListener(view -> models = Models.COUCH);
+        Fluffy_Chair.setOnClickListener(view -> models = Models.FLUFFY_CHAIR);
+        Long_Couch.setOnClickListener(view -> models = Models.LONG_COUCH);
+        TV_Table.setOnClickListener(view -> models = Models.TV_TABLE);
+        Clear.setOnClickListener(view -> removeAnchorNode());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> removeAnchorNode());
-        }
-
-
+    }
 
 
     private void placeChair(Anchor anchor) {
@@ -120,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
             return null;
         });
     }
-
-
 
 
     private void placeTVTable(Anchor anchor) {
@@ -183,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void removeAnchorNode() {
         //Remove an anchor node
         List<Node> children = new ArrayList<>(arFragment.getArSceneView().getScene().getChildren());
@@ -198,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    
+
 
     private void addModelToScene(Anchor anchor, ModelRenderable modelRenderable) {
         anchorNode = new AnchorNode(anchor);
