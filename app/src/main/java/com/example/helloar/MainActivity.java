@@ -1,11 +1,15 @@
 package com.example.helloar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -32,10 +36,56 @@ import java.util.List;
 
 import static com.google.ar.schemas.lull.VertexAttributeUsage.Color;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ArFragment arFragment;
     AnchorNode anchorNode;
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+       int id = item.getItemId();
+       switch (id){
+           case R.id.nav_desk:
+               models = Models.DESK;
+               Toast.makeText(getApplicationContext(),"desk chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_armchair:
+               models = Models.CHAIR;
+               Toast.makeText(getApplicationContext(),"Arm chair chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_bed:
+               models = Models.BED;
+               Toast.makeText(getApplicationContext(),"bed chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_bookshelf:
+               models = Models.BOOKSHELF;
+               Toast.makeText(getApplicationContext(),"bookshelf chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_shortcouch:
+               models = Models.COUCH;
+               Toast.makeText(getApplicationContext(),"Short Couch chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_fluffychair:
+               models = Models.FLUFFY_CHAIR;
+               Toast.makeText(getApplicationContext(),"Fluffy chair chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_longcouch:
+               models = Models.LONG_COUCH;
+               Toast.makeText(getApplicationContext(),"Long Couch chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_tvtable:
+               models = Models.TV_TABLE;
+               Toast.makeText(getApplicationContext(),"TV Table chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_logout:
+
+               Toast.makeText(getApplicationContext(),"TV Table chosen",Toast.LENGTH_LONG).show();
+               break;
+
+       }
+       drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     private enum Models {
         DESK,
@@ -77,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Navigation Drawer
         navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
 
 
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {

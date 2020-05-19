@@ -4,8 +4,8 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_chair"
-                    android:icon="@drawable/chair_png"
+                    android:id="@+id/nav_armchair"
+                    android:icon="@drawable/armchair_png"
                     android:title="@string/navi_chair" />
                 <item
                     android:id="@+id/nav_bed"
@@ -15,6 +15,26 @@
                     android:id="@+id/nav_desk"
                     android:icon="@drawable/desk_png"
                     android:title="@string/navi_desk" />
+                <item
+                    android:id="@+id/nav_bookshelf"
+                    android:icon="@drawable/bookshelf_png"
+                    android:title="Bookshelf" />
+                <item
+                    android:id="@+id/nav_shortcouch"
+                    android:icon="@drawable/shortcouch_png"
+                    android:title="Short Couch" />
+                <item
+                    android:id="@+id/nav_fluffychair"
+                    android:icon="@drawable/fluffychair_png"
+                    android:title="Fluffy chair" />
+                <item
+                    android:id="@+id/nav_longcouch"
+                    android:icon="@drawable/longcouch_png"
+                    android:title="Long Couch" />
+                <item
+                    android:id="@+id/nav_tvtable"
+                    android:icon="@drawable/table_png"
+                    android:title="Tv table" />
 
             </group>
         </menu>
@@ -25,9 +45,6 @@
                 <item
                     android:id="@+id/nav_profile"
                     android:title="@string/navi_profile" />
-                <item
-                    android:id="@+id/nav_login"
-                    android:title="@string/navi_login" />
                 <item
                     android:id="@+id/nav_logout"
                     android:title="@string/navi_logout" />

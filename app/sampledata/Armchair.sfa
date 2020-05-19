@@ -63,7 +63,7 @@
     file: 'sampledata/Armchair.obj',
     name: 'Armchair',
     recenter: 'root',
-    //scale: 1.0000000000000002e-06,
+    scale: 1.0000000000000002e-06,
   },
   version: '0.54:2',
 }
