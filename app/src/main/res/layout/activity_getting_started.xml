@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Getting_started">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="436dp"
+        android:layout_height="828dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="233dp"
+        android:layout_marginEnd="-25dp"
+        android:layout_marginBottom="-242dp"
+        app:srcCompat="@drawable/rectangle_17"
+        tools:layout_editor_absoluteX="-23dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="521dp"
+        android:layout_height="469dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-214dp"
+        android:layout_marginTop="-104dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="366dp"
+        app:srcCompat="@drawable/ourstoryicon_png" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="309dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="68dp"
+        android:text="Our project is an app that allows users to place 3D furniture models in AR to see how they would look like alongside their existing furniture and decor. Users will be able to resize, and reposition the furniture objects as needed. This will help people who would like to create their own design and see if the new furniture will fit in their current décor without the need of testing it with the real furniture. Other options and universal modifiers might be added if necessary."
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/black"
+        app:autoSizeTextType="uniform" />
+
+    <ImageButton
+        android:id="@+id/Back_btn"
+        android:layout_width="90dp"
+        android:layout_height="85dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginBottom="-4dp"
+        android:backgroundTint="#FFC107"
+        android:onClick="BACK"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/back_button" />
+
+</RelativeLayout>

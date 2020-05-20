@@ -22,7 +22,8 @@
         app:itemIconSize="50dp"
         app:itemIconTint="@android:color/black"
         app:itemTextAppearance="@style/TextAppearance.AppCompat.Large"
-        app:menu="@menu/main_menu" />
+        app:menu="@menu/main_menu"
+        tools:ignore="RtlCompat" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,69 +34,11 @@
             android:name="com.google.ar.sceneform.ux.ArFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/Desk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Desk" />
-
-                <Button
-                    android:id="@+id/Chair"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chair" />
-
                 <Button
                     android:id="@+id/Clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Clear" />
-
-                <Button
-                    android:id="@+id/Bed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bed" />
-
-                <Button
-                    android:id="@+id/Bookshelf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bookshelf" />
-
-                <Button
-                    android:id="@+id/Couch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Couch" />
-
-                <Button
-                    android:id="@+id/Fluffy_Chair"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fluffy Chair" />
-
-                <Button
-                    android:id="@+id/Long_Couch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Long Couch" />
-
-                <Button
-                    android:id="@+id/TV_Table"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TV Table" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab"
@@ -107,8 +50,7 @@
                     app:backgroundTint="@android:color/background_light"
                     app:srcCompat="@android:drawable/ic_delete" />
 
-            </LinearLayout>
-        </HorizontalScrollView>
+
     </RelativeLayout>
 
 

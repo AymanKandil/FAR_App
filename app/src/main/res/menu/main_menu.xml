@@ -42,9 +42,7 @@
     <item android:title="Profile">
         <menu>
             <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/nav_profile"
-                    android:title="@string/navi_profile" />
+
                 <item
                     android:id="@+id/nav_logout"
                     android:title="@string/navi_logout" />
