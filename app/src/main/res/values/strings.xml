@@ -1,4 +1,14 @@
 <resources>
+
     <string name="app_name">FAR APP</string>
+    <string name="navi_chair">Chair</string>
+    <string name="navi_bed">Bed</string>
+    <string name="navi_desk">Desk</string>
+    <string name="navi_items">Items Selected</string>
+    <string name="navi_profile">Account</string>
+    <string name="navi_login">login</string>
+    <string name="navi_logout">logout</string>
+    <string name="navi_story">About</string>
+
 
 </resources>

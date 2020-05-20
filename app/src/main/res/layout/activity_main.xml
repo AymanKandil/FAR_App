@@ -1,81 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    tools:openDrawer="start"
+    android:id="@+id/drawer_layout">
 
-    <fragment
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/arfragment"
-        android:name="com.google.ar.sceneform.ux.ArFragment"/>
-    <HorizontalScrollView
+        android:layout_gravity="start"
+        android:background="#FFD104"
+        android:textAlignment="center"
+        app:headerLayout="@layout/menu_header"
+        app:itemIconSize="50dp"
+        app:itemIconTint="@android:color/black"
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Large"
+        app:menu="@menu/main_menu"
+        tools:ignore="RtlCompat" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Desk"
-            android:text="Desk"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Chair"
-            android:text="Chair"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Clear"
-            android:text="Clear"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Bed"
-            android:text="Bed"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Bookshelf"
-            android:text="Bookshelf"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Couch"
-            android:text="Couch"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Fluffy_Chair"
-            android:text="Fluffy Chair"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Long_Couch"
-            android:text="Long Couch"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/TV_Table"
-            android:text="TV Table"/>
+        <fragment
+            android:id="@+id/arfragment"
+            android:name="com.google.ar.sceneform.ux.ArFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+                <Button
+                    android:id="@+id/Clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:clickable="true"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:clickable="true"
 
-            app:backgroundTint="@android:color/background_light"
-            app:srcCompat="@android:drawable/ic_delete" />
+                    app:backgroundTint="@android:color/background_light"
+                    app:srcCompat="@android:drawable/ic_delete" />
 
-    </LinearLayout>
-    </HorizontalScrollView>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

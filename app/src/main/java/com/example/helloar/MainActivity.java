@@ -1,16 +1,22 @@
 package com.example.helloar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.ArSceneView;
@@ -31,14 +37,83 @@ import java.util.List;
 
 import static com.google.ar.schemas.lull.VertexAttributeUsage.Color;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ArFragment arFragment;
+    int countdesk=0;
+    int countarmchair=0;
+    int countbed=0;
+    int countbookshelf=0;
+    int countshortcouch=0;
     AnchorNode anchorNode;
-    
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+       int id = item.getItemId();
 
-    private enum Models{
+       switch (id){
+           case R.id.nav_desk:
+               models = Models.DESK;
+               Toast.makeText(getApplicationContext(),"desk chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_armchair:
+               models = Models.CHAIR;
+               Toast.makeText(getApplicationContext(),"Arm chair chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_bed:
+               models = Models.BED;
+               Toast.makeText(getApplicationContext(),"bed chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_bookshelf:
+               models = Models.BOOKSHELF;
+               Toast.makeText(getApplicationContext(),"bookshelf chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_shortcouch:
+               models = Models.COUCH;
+               Toast.makeText(getApplicationContext(),"Short Couch chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_fluffychair:
+               models = Models.FLUFFY_CHAIR;
+               Toast.makeText(getApplicationContext(),"Fluffy chair chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_longcouch:
+               models = Models.LONG_COUCH;
+               Toast.makeText(getApplicationContext(),"Long Couch chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_tvtable:
+               models = Models.TV_TABLE;
+               Toast.makeText(getApplicationContext(),"TV Table chosen",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_logout:
+               Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
+               startActivity(intent);
+               finish();
+               Toast.makeText(getApplicationContext(),"Signing out",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_items:
+               Intent intent2 = new Intent(getApplicationContext(),Items_selected.class);
+               intent2.putExtra("count",countdesk);
+               intent2.putExtra("count2",countarmchair);
+               intent2.putExtra("count3",countbed);
+               intent2.putExtra("count4",countbookshelf);
+               intent2.putExtra("count5",countshortcouch);
+               startActivity(intent2);
+               finish();
+               Toast.makeText(getApplicationContext(),"Items placed",Toast.LENGTH_LONG).show();
+               break;
+           case R.id.nav_story:
+               Intent intent3 = new Intent(getApplicationContext(),Getting_started.class);
+               startActivity(intent3);
+               finish();
+               Toast.makeText(getApplicationContext(),"About page",Toast.LENGTH_LONG).show();
+               break;
+
+       }
+       drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private enum Models {
         DESK,
         CHAIR,
         BED,
@@ -51,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Models models = Models.DESK;
 
+    //Drawer Menu
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,58 +138,94 @@ public class MainActivity extends AppCompatActivity {
 
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arfragment);
-
+        /*
         Button Desk = findViewById(R.id.Desk);
         Button Chair = findViewById(R.id.Chair);
-        Button Clear = findViewById(R.id.Clear);
+
         Button Bed = findViewById(R.id.Bed);
         Button Bookshelf = findViewById(R.id.Bookshelf);
-        Button Couch=findViewById(R.id.Couch);
-        Button Fluffy_Chair=findViewById(R.id.Fluffy_Chair);
-        Button Long_Couch=findViewById(R.id.Long_Couch);
-        Button TV_Table=findViewById(R.id.TV_Table);
+        Button Couch = findViewById(R.id.Couch);
+        Button Fluffy_Chair = findViewById(R.id.Fluffy_Chair);
+        Button Long_Couch = findViewById(R.id.Long_Couch);
+        Button TV_Table = findViewById(R.id.TV_Table);
+        Desk.setOnClickListener(view -> models = Models.DESK);
+        Chair.setOnClickListener(view -> models = Models.CHAIR);
+        Bed.setOnClickListener(view -> models = Models.BED);
+        Bookshelf.setOnClickListener(view -> models = Models.BOOKSHELF);
+        Couch.setOnClickListener(view -> models = Models.COUCH);
+        Fluffy_Chair.setOnClickListener(view -> models = Models.FLUFFY_CHAIR);
+        Long_Couch.setOnClickListener(view -> models = Models.LONG_COUCH);
+        TV_Table.setOnClickListener(view -> models = Models.TV_TABLE);
 
 
 
+         */
+        Button Clear = findViewById(R.id.Clear);
+        //Menu Hooks
+        drawerLayout=findViewById(R.id.drawer_layout);
+        navigationView=findViewById(R.id.navigation_view);
+
+        //Navigation Drawer
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
 
 
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             //Anchor anchor1 = hitResult.createAnchor();
-           // Anchor anchor2 = hitResult.createAnchor();
+            // Anchor anchor2 = hitResult.createAnchor();
             //Anchor anchor3=hitResult.createAnchor();
-           // Anchor anchor4=hitResult.createAnchor();
-            if (models == Models.DESK)
+            // Anchor anchor4=hitResult.createAnchor();
+            if (models == Models.DESK) {
                 placeDesk(hitResult.createAnchor());
-            else if (models==Models.CHAIR)
+                countdesk++;
+            }
+            else if (models == Models.CHAIR) {
                 placeChair(hitResult.createAnchor());
-            else if (models==Models.BED)
+                countarmchair++;
+            }
+            else if (models == Models.BED) {
                 placeBed(hitResult.createAnchor());
-            else if (models==Models.BOOKSHELF)
+                countbed++;
+            }
+            else if (models == Models.BOOKSHELF) {
                 placeBookshelf(hitResult.createAnchor());
-            else if (models==Models.COUCH)
+                countbookshelf++;
+            }
+            else if (models == Models.COUCH) {
                 placeCouch(hitResult.createAnchor());
-            else if (models==Models.FLUFFY_CHAIR)
+                countshortcouch++;
+            }
+            else if (models == Models.FLUFFY_CHAIR)
                 placeFluffyChair(hitResult.createAnchor());
-            else if (models==Models.LONG_COUCH)
+            else if (models == Models.LONG_COUCH)
                 placeLongCouch(hitResult.createAnchor());
-            else if (models==Models.TV_TABLE)
+            else if (models == Models.TV_TABLE)
                 placeTVTable(hitResult.createAnchor());
         });
 
-        Desk.setOnClickListener(view->models = Models.DESK);
-        Chair.setOnClickListener(view->models = Models.CHAIR);
-        Bed.setOnClickListener(view->models=Models.BED);
-        Bookshelf.setOnClickListener(view->models=Models.BOOKSHELF);
-        Couch.setOnClickListener(view->models=Models.COUCH);
-        Fluffy_Chair.setOnClickListener(view->models=Models.FLUFFY_CHAIR);
-        Long_Couch.setOnClickListener(view->models=Models.LONG_COUCH);
-        TV_Table.setOnClickListener(view->models=Models.TV_TABLE);
-        Clear.setOnClickListener(view->removeAnchorNode());
+
+        Clear.setOnClickListener(view -> removeAnchorNode());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> removeAnchorNode());
+    }
+    public int getcount(String count){
+        switch (count){
+            case "bed":
+                return countbed;
+            case "desk":
+                return countdesk;
+            case "bookshelf":
+                return countbookshelf;
+            case "armchair":
+                return countarmchair;
+            case "short couch":
+                return countshortcouch;
+            default:
+                return -1;
         }
 
+    }
 
 
 
@@ -121,8 +236,6 @@ public class MainActivity extends AppCompatActivity {
             return null;
         });
     }
-
-
 
 
     private void placeTVTable(Anchor anchor) {
@@ -184,7 +297,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void removeAnchorNode() {
         //Remove an anchor node
         List<Node> children = new ArrayList<>(arFragment.getArSceneView().getScene().getChildren());
@@ -198,8 +310,13 @@ public class MainActivity extends AppCompatActivity {
                 node.setParent(null);
             }
         }
+         countdesk=0;
+         countarmchair=0;
+         countbed=0;
+         countbookshelf=0;
+         countshortcouch=0;
     }
-    
+
 
     private void addModelToScene(Anchor anchor, ModelRenderable modelRenderable) {
         anchorNode = new AnchorNode(anchor);
