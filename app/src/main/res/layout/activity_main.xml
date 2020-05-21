@@ -8,7 +8,6 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:openDrawer="start"
     android:id="@+id/drawer_layout">
 
     <com.google.android.material.navigation.NavigationView
@@ -23,7 +22,7 @@
         app:itemIconTint="@android:color/black"
         app:itemTextAppearance="@style/TextAppearance.AppCompat.Large"
         app:menu="@menu/main_menu"
-        tools:ignore="RtlCompat" />
+        tools:ignore="RtlCompat" ></com.google.android.material.navigation.NavigationView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,22 +32,23 @@
             android:id="@+id/arfragment"
             android:name="com.google.ar.sceneform.ux.ArFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-                <Button
-                    android:id="@+id/Clear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Clear" />
+            android:layout_height="match_parent" ></fragment>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:clickable="true"
-
-                    app:backgroundTint="@android:color/background_light"
-                    app:srcCompat="@android:drawable/ic_delete" />
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="168dp"
+            android:layout_height="197dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="627dp"
+            android:layout_marginBottom="1079dp"
+            android:backgroundTint="#818181"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/menubutton_png" ></ImageButton>
 
 
     </RelativeLayout>

@@ -35,6 +35,9 @@
                     android:id="@+id/nav_tvtable"
                     android:icon="@drawable/table_png"
                     android:title="Tv table" />
+                <item
+                    android:id="@+id/nav_clear"
+                    android:title="Clear" />
 
             </group>
         </menu>

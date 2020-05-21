@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int countbookshelf=0;
     int countshortcouch=0;
     AnchorNode anchorNode;
+    ImageView menuIcon;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -107,6 +109,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                finish();
                Toast.makeText(getApplicationContext(),"About page",Toast.LENGTH_LONG).show();
                break;
+           case R.id.nav_clear:
+               removeAnchorNode();
+               Toast.makeText(getApplicationContext(),"Items Cleared!",Toast.LENGTH_LONG).show();
+               break;
+
 
        }
        drawerLayout.closeDrawer(GravityCompat.START);
@@ -138,43 +145,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arfragment);
-        /*
-        Button Desk = findViewById(R.id.Desk);
-        Button Chair = findViewById(R.id.Chair);
-
-        Button Bed = findViewById(R.id.Bed);
-        Button Bookshelf = findViewById(R.id.Bookshelf);
-        Button Couch = findViewById(R.id.Couch);
-        Button Fluffy_Chair = findViewById(R.id.Fluffy_Chair);
-        Button Long_Couch = findViewById(R.id.Long_Couch);
-        Button TV_Table = findViewById(R.id.TV_Table);
-        Desk.setOnClickListener(view -> models = Models.DESK);
-        Chair.setOnClickListener(view -> models = Models.CHAIR);
-        Bed.setOnClickListener(view -> models = Models.BED);
-        Bookshelf.setOnClickListener(view -> models = Models.BOOKSHELF);
-        Couch.setOnClickListener(view -> models = Models.COUCH);
-        Fluffy_Chair.setOnClickListener(view -> models = Models.FLUFFY_CHAIR);
-        Long_Couch.setOnClickListener(view -> models = Models.LONG_COUCH);
-        TV_Table.setOnClickListener(view -> models = Models.TV_TABLE);
-
-
-
-         */
-        Button Clear = findViewById(R.id.Clear);
         //Menu Hooks
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.navigation_view);
+        menuIcon=findViewById(R.id.imageButton2);
 
         //Navigation Drawer
-        navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationDrawer();
 
 
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
-            //Anchor anchor1 = hitResult.createAnchor();
-            // Anchor anchor2 = hitResult.createAnchor();
-            //Anchor anchor3=hitResult.createAnchor();
-            // Anchor anchor4=hitResult.createAnchor();
             if (models == Models.DESK) {
                 placeDesk(hitResult.createAnchor());
                 countdesk++;
@@ -203,31 +183,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 placeTVTable(hitResult.createAnchor());
         });
 
-
-        Clear.setOnClickListener(view -> removeAnchorNode());
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> removeAnchorNode());
     }
-    public int getcount(String count){
-        switch (count){
-            case "bed":
-                return countbed;
-            case "desk":
-                return countdesk;
-            case "bookshelf":
-                return countbookshelf;
-            case "armchair":
-                return countarmchair;
-            case "short couch":
-                return countshortcouch;
-            default:
-                return -1;
-        }
 
+    private void navigationDrawer() {
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerVisible(GravityCompat.START))
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                else drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
 
 
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerVisible(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+        else
+            super.onBackPressed();
+
+    }
 
     private void placeChair(Anchor anchor) {
         ModelRenderable.builder().setSource(this, Uri.parse("Armchair.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable)).exceptionally(throwable -> {
