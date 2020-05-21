@@ -29,23 +29,21 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="240dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginBottom="260dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447"
         app:srcCompat="@drawable/ourstoryicon_png" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="604dp"
-        android:layout_height="595dp"
+        android:layout_width="456dp"
+        android:layout_height="363dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="92dp"
         android:text="Our project is an app that allows users to place 3D furniture models in AR to see how they would look like alongside their existing furniture and decor. Users will be able to resize, and reposition the furniture objects as needed. This will help people who would like to create their own design and see if the new furniture will fit in their current décor without the need of testing it with the real furniture. Other options and universal modifiers might be added if necessary."
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@android:color/black"
@@ -53,7 +51,6 @@
         app:autoSizeTextType="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
