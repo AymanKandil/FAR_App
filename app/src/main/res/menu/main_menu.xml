@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="3-D objects">
+    <item android:title="@string/_3_d_objects">
         <menu>
             <group android:checkableBehavior="single">
                 <item
@@ -9,7 +9,7 @@
                     android:title="@string/navi_chair" />
                 <item
                     android:id="@+id/nav_bed"
-                    android:icon="@drawable/bed_png"
+                    android:icon="@drawable/double_bed"
                     android:title="@string/navi_bed" />
                 <item
                     android:id="@+id/nav_desk"
@@ -18,31 +18,91 @@
                 <item
                     android:id="@+id/nav_bookshelf"
                     android:icon="@drawable/bookshelf_png"
-                    android:title="Bookshelf" />
+                    android:title="@string/bookshelf" />
                 <item
                     android:id="@+id/nav_shortcouch"
                     android:icon="@drawable/shortcouch_png"
-                    android:title="Short Couch" />
+                    android:title="@string/short_couch" />
                 <item
                     android:id="@+id/nav_fluffychair"
                     android:icon="@drawable/fluffychair_png"
-                    android:title="Fluffy chair" />
+                    android:title="@string/fluffy_chair" />
                 <item
                     android:id="@+id/nav_longcouch"
                     android:icon="@drawable/longcouch_png"
-                    android:title="Long Couch" />
+                    android:title="@string/long_couch" />
                 <item
                     android:id="@+id/nav_tvtable"
                     android:icon="@drawable/table_png"
-                    android:title="Tv table" />
+                    android:title="@string/tv_table" />
+                <item
+                    android:id="@+id/nav_arcademachine"
+                    android:icon="@drawable/arcade_machine"
+                    android:title="Arcade Machine" />
+                <item
+                    android:id="@+id/nav_closet"
+                    android:icon="@drawable/closet"
+                    android:title="Closet" />
+                <item
+                    android:id="@+id/nav_cornertable"
+                    android:icon="@drawable/corner_table"
+                    android:title="Corner Table" />
+                <item
+                    android:id="@+id/nav_drums"
+                    android:icon="@drawable/drums"
+                    android:title="Drums" />
+                <item
+                    android:id="@+id/nav_gardenbench"
+                    android:icon="@drawable/garden_bench"
+                    android:title="Garden Bench" />
+                <item
+                    android:id="@+id/nav_hangingdesk"
+                    android:icon="@drawable/hanging_desk"
+                    android:title="Hanging Desk" />
+                <item
+                    android:id="@+id/nav_minibar"
+                    android:icon="@drawable/mini_bar"
+                    android:title="Bar" />
+                <item
+                    android:id="@+id/nav_officechair"
+                    android:icon="@drawable/office_chair"
+                    android:title="Office Chair" />
+                <item
+                    android:id="@+id/nav_piano"
+                    android:icon="@drawable/piano"
+                    android:title="Grand Piano" />
+                <item
+                    android:id="@+id/nav_singlebed"
+                    android:icon="@drawable/single_bed"
+                    android:title="Single Bed" />
+                <item
+                    android:id="@+id/nav_woodentable"
+                    android:icon="@drawable/wooden_table"
+                    android:title="Wooden Table" />
+                <item
+                    android:id="@+id/nav_smallcloset"
+                    android:icon="@drawable/small_closet"
+                    android:title="Single Closet" />
+                <item
+                    android:id="@+id/nav_tennistable"
+                    android:icon="@drawable/table_tennis_table"
+                    android:title="Ping Pong Table" />
+                <item
+                    android:id="@+id/nav_wallshelf"
+                    android:icon="@drawable/wall_shelf"
+                    android:title="Wall Shelf" />
+                <item
+                    android:id="@+id/nav_woodenchair"
+                    android:icon="@drawable/wooden_chair"
+                    android:title="Wooden Chair" />
                 <item
                     android:id="@+id/nav_clear"
-                    android:title="Clear" />
+                    android:title="@string/clear" />
 
             </group>
         </menu>
     </item>
-    <item android:title="Profile">
+    <item android:title="@string/profile">
         <menu>
             <group android:checkableBehavior="single">
 
@@ -59,9 +119,8 @@
             android:title="@string/navi_items" />
         <item
             android:id="@+id/nav_story"
-            android:icon="@drawable/ourstory_png"
-            android:title="@string/navi_story"
-            />
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="@string/navi_story" />
     </group>
 
 </menu>

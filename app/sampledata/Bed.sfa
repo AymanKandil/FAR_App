@@ -193,7 +193,8 @@
     file: 'sampledata/Bed.obj',
     name: 'Bed',
     recenter: 'root',
-    
+    //scale: 0.44764700000000002,
+    scale: 0.5,
   },
   version: '0.54:2',
 }

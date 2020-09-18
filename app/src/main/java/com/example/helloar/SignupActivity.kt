@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
@@ -24,14 +25,19 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         super.onCreate(savedInstanceState)
+
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+
         setContentView(R.layout.activity_signup)
 
 
 
     }
     fun sign(view: View){
-        var email = eField.text.toString()
-        var password = pField.text.toString()
+        val email = eField.text.toString()
+        val password = pField.text.toString()
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
             if(task.isSuccessful){
                 Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
@@ -44,8 +50,8 @@ class SignupActivity : AppCompatActivity() {
         })
     }
     fun signin(view: View){
-        var email = eField.text.toString()
-        var password = pField.text.toString()
+        val email = eField.text.toString()
+        val password = pField.text.toString()
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {

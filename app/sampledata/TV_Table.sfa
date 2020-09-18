@@ -167,6 +167,7 @@
     file: 'sampledata/TV_Table.obj',
     name: 'TV_Table',
     recenter: 'root',
+    scale: 0.1,
     //scale: 0.44764700000000002,
   },
   version: '0.54:2',

@@ -115,7 +115,8 @@
     file: 'sampledata/Fluffy_Chair.obj',
     name: 'Fluffy_Chair',
     recenter: 'root',
-    scale: 0.502444,
+    //scale: 0.502444,
+    scale: 0.5,
   },
   version: '0.54:2',
 }

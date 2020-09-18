@@ -114,6 +114,7 @@
     file: 'sampledata/Long_Couch.obj',
     name: 'Long_Couch',
     recenter: 'root',
+    scale: 0.44764700000000002,
   },
   version: '0.54:2',
 }

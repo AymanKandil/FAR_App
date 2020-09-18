@@ -18,7 +18,8 @@
         android:src="@drawable/icon_far"
         app:layout_constraintBottom_toTopOf="@+id/iv_slogan"
         app:layout_constraintEnd_toEndOf="@+id/iv_slogan"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
     <ImageView
         android:id="@+id/iv_slogan"
@@ -30,7 +31,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo"></ImageView>
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

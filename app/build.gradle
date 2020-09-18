@@ -3,6 +3,7 @@ apply plugin: 'com.google.ar.sceneform.plugin'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 29
@@ -10,14 +11,20 @@ android {
     defaultConfig {
         applicationId "com.example.helloar"
         minSdkVersion 25
+        ndkVersion "21.0.6113669"
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug{
+            testCoverageEnabled=true
+            minifyEnabled true
+        }
         release {
-            minifyEnabled false
+            testCoverageEnabled=false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -28,19 +35,52 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-database:19.2.1'
-    implementation 'com.google.firebase:firebase-core:17.3.0'
+
+
+    implementation 'com.google.firebase:firebase-database:19.4.0'
+    implementation 'com.google.firebase:firebase-core:17.5.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
-    implementation 'com.google.firebase:firebase-auth:19.3.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.google.android.material:material:1.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+
+    implementation 'com.google.ar:core:1.19.0'
+    implementation 'com.google.ar.sceneform:core:1.15.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
+    implementation 'com.google.ar:core:1.19.0'
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+
+    def nav_version = "2.3.0"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    implementation 'com.github.AppIntro:AppIntro:6.0.0'
+
+//    implementation 'andriodx.navigation:navigation-fragment-ktx:2.2.0-rc03'
+//    implementation 'andriodx.navigation:navigation-ui-ktx:2.2.0-rc03'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.0"
+
+
+
+    implementation 'androidx.core:core:1.3.1'
+
+
+
+
 }
 
 
@@ -78,3 +118,66 @@ sceneform.asset('sampledata/Bookshelf.obj',
         'default',
         'sampledata/Bookshelf.sfa',
         'src/main/assets/Bookshelf')
+
+sceneform.asset('sampledata/arcade_machine.obj',
+        'default',
+        'sampledata/arcade_machine.sfa',
+        'src/main/assets/arcade_machine')
+
+
+sceneform.asset('sampledata/breakfast_bar.obj',
+        'default',
+        'sampledata/breakfast_bar.sfa',
+        'src/main/assets/breakfast_bar')
+sceneform.asset('sampledata/closet.obj',
+        'default',
+        'sampledata/closet.sfa',
+        'src/main/assets/closet')
+sceneform.asset('sampledata/computer_chair.obj',
+        'default',
+        'sampledata/computer_chair.sfa',
+        'src/main/assets/computer_chair')
+sceneform.asset('sampledata/corner_table.obj',
+        'default',
+        'sampledata/corner_table.sfa',
+        'src/main/assets/corner_table')
+sceneform.asset('sampledata/drums.obj',
+        'default',
+        'sampledata/drums.sfa',
+        'src/main/assets/drums')
+sceneform.asset('sampledata/garden_bench.obj',
+        'default',
+        'sampledata/garden_bench.sfa',
+        'src/main/assets/garden_bench')
+sceneform.asset('sampledata/piano.obj',
+        'default',
+        'sampledata/piano.sfa',
+        'src/main/assets/piano')
+sceneform.asset('sampledata/sm_bed.obj',
+        'default',
+        'sampledata/sm_bed.sfa',
+        'src/main/assets/sm_bed')
+sceneform.asset('sampledata/sm_closet.obj',
+        'default',
+        'sampledata/sm_closet.sfa',
+        'src/main/assets/sm_closet')
+sceneform.asset('sampledata/table_tennis_table.obj',
+        'default',
+        'sampledata/table_tennis_table.sfa',
+        'src/main/assets/table_tennis_table')
+sceneform.asset('sampledata/wall_desk.obj',
+        'default',
+        'sampledata/wall_desk.sfa',
+        'src/main/assets/wall_desk')
+sceneform.asset('sampledata/wall_shelf.obj',
+        'default',
+        'sampledata/wall_shelf.sfa',
+        'src/main/assets/wall_shelf')
+sceneform.asset('sampledata/wood_chair.obj',
+        'default',
+        'sampledata/wood_chair.sfa',
+        'src/main/assets/wood_chair')
+sceneform.asset('sampledata/wood_table.obj',
+        'default',
+        'sampledata/wood_table.sfa',
+        'src/main/assets/wood_table')

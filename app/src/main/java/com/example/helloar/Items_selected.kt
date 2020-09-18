@@ -3,6 +3,7 @@ package com.example.helloar
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_items_selected.*
 
@@ -11,6 +12,8 @@ class Items_selected : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items_selected)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val countt = intent.getIntExtra("count",0)
         val countt2 = intent.getIntExtra("count2",0)
         val countt3 = intent.getIntExtra("count3",0)

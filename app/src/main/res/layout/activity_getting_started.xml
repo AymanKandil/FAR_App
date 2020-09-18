@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,65 +8,72 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="810dp"
-        android:layout_height="1082dp"
+        android:layout_width="match_parent"
+        android:layout_height="589dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="540dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_17" />
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-42dp"
+        app:srcCompat="@drawable/rectangle_17"
+        tools:layout_editor_absoluteX="195dp"
+        tools:layout_editor_absoluteY="453dp"
+         />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="925dp"
-        android:layout_height="607dp"
+        android:layout_width="689dp"
+        android:layout_height="378dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="232dp"
-        android:layout_marginBottom="260dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ourstoryicon_png" />
+        android:layout_marginStart="-285dp"
+        android:layout_marginTop="-61dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="530dp"
+
+        app:srcCompat="@drawable/ourstoryicon_png"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="67dp" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="456dp"
-        android:layout_height="363dp"
+        android:layout_width="380dp"
+        android:layout_height="346dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="92dp"
-        android:text="Our project is an app that allows users to place 3D furniture models in AR to see how they would look like alongside their existing furniture and decor. Users will be able to resize, and reposition the furniture objects as needed. This will help people who would like to create their own design and see if the new furniture will fit in their current décor without the need of testing it with the real furniture. Other options and universal modifiers might be added if necessary."
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="371dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="130dp"
+        android:text="@string/our_project_is_an_app_that_allows_users_to_place_3d_furniture_models_in_ar_to_see_how_they_would_look_like_alongside_their_existing_furniture_and_decor_users_will_be_able_to_resize_and_reposition_the_furniture_objects_as_needed_this_will_help_people_who_would_like_to_create_their_own_design_and_see_if_the_new_furniture_will_fit_in_their_current_d_cor_without_the_need_of_testing_it_with_the_real_furniture_other_options_and_universal_modifiers_might_be_added_if_necessary"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@android:color/black"
         android:textSize="24sp"
-        app:autoSizeTextType="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:autoSizeTextType="uniform"
+        tools:layout_editor_absoluteX="73dp"
+        tools:layout_editor_absoluteY="269dp" />
 
     <ImageButton
         android:id="@+id/Back_btn"
-        android:layout_width="82dp"
-        android:layout_height="73dp"
+        android:layout_width="83dp"
+        android:layout_height="82dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="317dp"
+        android:layout_marginBottom="27dp"
         android:backgroundTint="#FFC107"
         android:onClick="BACK"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.009"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/back_button" />
+        app:srcCompat="@drawable/back_button"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="546dp"
+         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

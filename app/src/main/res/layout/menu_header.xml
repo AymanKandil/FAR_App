@@ -3,24 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:background="#FFD104"
-    android:paddingLeft="30dp">
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp">
 
     <ImageView
         android:id="@+id/logo_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/logo_line"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
-        android:layout_above="@+id/logo_line"
-        android:src="@drawable/blackcircle_yellowcouch">
-    </ImageView>
+        android:src="@drawable/blackcircle_yellowcouch"></ImageView>
+
     <ImageView
         android:id="@+id/logo_line"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/line_png">
-    </ImageView>
+        android:src="@drawable/line_png"></ImageView>
 
 </RelativeLayout>
