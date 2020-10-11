@@ -15,7 +15,10 @@ The project uses the following technologies:
   - Safe and Secure with firebase login feature
   - Realistic virtual furniture from Poly.google.com
 
+License
+----
 
+BSD 3-Clause License
 
 copyright disclaimer
 ----
