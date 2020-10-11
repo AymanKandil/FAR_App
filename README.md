@@ -1,9 +1,5 @@
 <p align="center">
-  <img  src="app/src/main/res/drawable-hdpi/icon_far.png">
-</p>
-
-<p align="center">
-  <img  src="(app/src/main/res/drawable-hdpi/text_far.png">
+  <img src="app/src/main/res/drawable-hdpi/icon_far.png">
 </p>
 
 # Furniture Augmented Reality App (FAR APP)
