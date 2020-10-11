@@ -1,5 +1,7 @@
-![](app/src/main/res/drawable-hdpi/icon_far.png)  ![](app/src/main/res/drawable-hdpi/text_far.png)
-
+<p align="center">
+  <img  src="app/src/main/res/drawable-hdpi/icon_far.png">
+  <img  src="(app/src/main/res/drawable-hdpi/text_far.png">
+</p>
 
 # Furniture Augmented Reality App (FAR APP)
 
