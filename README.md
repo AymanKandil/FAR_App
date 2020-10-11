@@ -1,4 +1,5 @@
 # Furniture Augmented Reality App (FAR APP)
+![](https://www.dropbox.com/preview/Icon--FAR.jpeg?role=personal)
 
 This was a project for my Mobile Computing class where Bader Al-Jumaah and I developed an interior design augmented reality android application to allow users to design their house before buying the actual furniture. The app can be downloaded from our website [FAR APP](https://www.far.helep0d.xyz/). 
 
