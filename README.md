@@ -20,7 +20,7 @@ License
 
 BSD 3-Clause License
 
-copyright disclaimer
+Copyright Disclaimer
 ----
 
 This project is the property of [FAR APP](https://www.far.helep0d.xyz/) developers and if used somewhere else the developers must be mentioned and tagged to avoid legal problems.
