@@ -1,0 +1,70 @@
+{
+  materials: [
+    {
+      name: '_crayfishdiffuse',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.67449999999999999,
+            0.83919999999999995,
+            0.015699999999999999,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '02___Default',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.039199999999999999,
+            0.039199999999999999,
+            0.039199999999999999,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.408248,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/Armchair.obj',
+    name: 'Armchair',
+    recenter: 'root',
+    scale: 1.0000000000000002e-06,
+    //scale: 0.44764700000000002,
+  },
+  version: '0.54:2',
+}

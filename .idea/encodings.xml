@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Armchair.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Bed.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Bookshelf.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Couch.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Desk.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Fluffy_Chair.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/Long_Couch.sfb" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/TV_Table.sfb" charset="UTF-16" />
+  </component>
+</project>

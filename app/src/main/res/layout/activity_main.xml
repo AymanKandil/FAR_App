@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true">
+
+
+    <!--<ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="267dp"
+            android:layout_marginBottom="717dp"
+            android:background="@color/common_google_signin_btn_text_dark_disabled"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/menubutton_png" />-->
+
+
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/arfragment"
+            android:name="com.google.ar.sceneform.ux.ArFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            tools:layout="@layout/sceneform_ux_fragment_layout" />
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFD104"
+        android:fitsSystemWindows="true"
+        android:textAlignment="center"
+        app:headerLayout="@layout/menu_header"
+        app:itemIconSize="50dp"
+        app:itemIconTint="@android:color/black"
+        app:itemTextColor="@color/design_default_color_on_secondary"
+        app:menu="@menu/main_menu"
+        tools:ignore="RtlCompat"/>
+
+
+    <!--<com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#FFD104"
+        android:contextClickable="false"
+        android:fitsSystemWindows="true"
+        android:forceHasOverlappingRendering="false"
+        android:layoutMode="opticalBounds"
+        android:textAlignment="center"
+        app:headerLayout="@layout/menu_header"
+        app:itemIconSize="50dp"
+        app:itemIconTint="@android:color/black"
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:menu="@menu/main_menu"></com.google.android.material.navigation.NavigationView>-->
+</androidx.drawerlayout.widget.DrawerLayout>
+
+
