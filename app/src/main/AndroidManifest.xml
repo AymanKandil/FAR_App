@@ -33,7 +33,6 @@
         <activity android:name=".Items_selected" />
         <activity
             android:name=".MainActivity" />
-        <activity android:name=".SignupActivity" />
 
         <meta-data
             android:name="com.google.ar.core"

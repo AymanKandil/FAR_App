@@ -29,6 +29,8 @@
 
     <string name="email">Email</string>
     <string name="login_sign_up">Login/Sign up</string>
+    <string name="virtual_furniture">Virtual Furniture</string>
+    <string name="clear_last_item">Clear last item</string>
 
 
 </resources>

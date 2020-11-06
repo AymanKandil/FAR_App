@@ -13,8 +13,8 @@ android {
         minSdkVersion 25
         ndkVersion "21.0.6113669"
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -50,6 +50,7 @@ dependencies {
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.17.1'
     implementation 'com.google.ar:core:1.19.0'
 
+    implementation 'com.google.android.material:material:1.1.0-alpha04'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
@@ -61,16 +62,14 @@ dependencies {
 
     implementation 'com.github.AppIntro:AppIntro:6.0.0'
 
-//    implementation 'andriodx.navigation:navigation-fragment-ktx:2.2.0-rc03'
-//    implementation 'andriodx.navigation:navigation-ui-ktx:2.2.0-rc03'
-
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'com.google.android.material:material:1.2.1'
+    //implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.0"
 
@@ -123,8 +122,6 @@ sceneform.asset('sampledata/arcade_machine.obj',
         'default',
         'sampledata/arcade_machine.sfa',
         'src/main/assets/arcade_machine')
-
-
 sceneform.asset('sampledata/breakfast_bar.obj',
         'default',
         'sampledata/breakfast_bar.sfa',
@@ -133,10 +130,6 @@ sceneform.asset('sampledata/closet.obj',
         'default',
         'sampledata/closet.sfa',
         'src/main/assets/closet')
-sceneform.asset('sampledata/computer_chair.obj',
-        'default',
-        'sampledata/computer_chair.sfa',
-        'src/main/assets/computer_chair')
 sceneform.asset('sampledata/corner_table.obj',
         'default',
         'sampledata/corner_table.sfa',
@@ -173,10 +166,6 @@ sceneform.asset('sampledata/wall_shelf.obj',
         'default',
         'sampledata/wall_shelf.sfa',
         'src/main/assets/wall_shelf')
-sceneform.asset('sampledata/wood_chair.obj',
-        'default',
-        'sampledata/wood_chair.sfa',
-        'src/main/assets/wood_chair')
 sceneform.asset('sampledata/wood_table.obj',
         'default',
         'sampledata/wood_table.sfa',

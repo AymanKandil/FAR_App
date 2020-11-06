@@ -2,6 +2,7 @@ package com.example.helloar;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,14 +10,19 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+//import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.google.android.material.navigation.NavigationView;
+//import com.google.android.material.navigation.NavigationView;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.ar.core.Anchor;
+import com.google.ar.core.Config;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.Camera;
 import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.Sun;
@@ -28,7 +34,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import android.widget.PopupMenu;
+
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private ArFragment arFragment;
     int countdesk=0;
@@ -38,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int countshortcouch=0;
 
     AnchorNode anchorNode;
+
+
 
     //ImageView menuIcon;
 
@@ -72,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Models models = Models.DESK;
 
     //Drawer Menu
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    //DrawerLayout drawerLayout;
+    //NavigationView navigationView;
 
 
 
@@ -84,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        drawerLayout=findViewById(R.id.drawer_layout);
-        navigationView=findViewById(R.id.navigation_view);
+        //drawerLayout=findViewById(R.id.drawer_layout);
+        //navigationView=findViewById(R.id.navigation_view);
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arfragment);
 
@@ -103,7 +113,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawerLayout.closeDrawer(GravityCompat.START);
             else drawerLayout.openDrawer(GravityCompat.START);
         });*/
-        navigationDrawer();
+        //navigationDrawer();
+
+        ExtendedFloatingActionButton fabmenu=findViewById(R.id.extmenufab);
+        fabmenu.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.Q)
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(MainActivity.this,view);
+                popup.setOnMenuItemClickListener(MainActivity.this);
+                popup.inflate(R.menu.main_menu);
+                popup.show();
+            }
+        });
+        ExtendedFloatingActionButton fabclear=findViewById(R.id.extclearfab);
+        fabclear.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.Q)
+            @Override
+            public void onClick(View view) {
+                removeAnchorNode();
+                Toast.makeText(getApplicationContext(),"Items Cleared!",Toast.LENGTH_LONG).show();
+            }
+        });
+        ExtendedFloatingActionButton fabclearlast=findViewById(R.id.extlastclrfab);
+        fabclearlast.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.Q)
+            @Override
+            public void onClick(View view) {
+                removelastAnchorNode();
+                Toast.makeText(getApplicationContext(),"Last item cleared!",Toast.LENGTH_LONG).show();
+            }
+        });
+        ExtendedFloatingActionButton fababout=findViewById(R.id.aboutfab);
+        fababout.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.Q)
+            @Override
+            public void onClick(View view) {
+                storyyyy();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             if (models == Models.DESK) {
                 placeDesk(hitResult.createAnchor());
@@ -137,8 +196,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 placeBar(hitResult.createAnchor());
             else if (models == Models.CLOSET)
                 placeCloset(hitResult.createAnchor());
-            else if (models == Models.COMPUTER_CHAIR)
-                placeComputer(hitResult.createAnchor());
             else if (models == Models.CORNER_TABLE)
                 placeCornerTable(hitResult.createAnchor());
             else if (models == Models.DRUMS)
@@ -157,17 +214,117 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 placeWalldesk(hitResult.createAnchor());
             else if (models == Models.WALL_SHELF)
                 placeShelf(hitResult.createAnchor());
-            else if (models == Models.WOODEN_CHAIR)
-                placeWoodenChair(hitResult.createAnchor());
             else if (models == Models.WOODEN_TABLE)
                 placeWoodenTable(hitResult.createAnchor());
         });
 
 
+
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onMenuItemClick(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.nav_desk:
+                models = Models.DESK;
+                Toast.makeText(getApplicationContext(), "desk chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_armchair:
+                models = Models.CHAIR;
+                Toast.makeText(getApplicationContext(), "Arm chair chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_bed:
+                models = Models.BED;
+                Toast.makeText(getApplicationContext(), "bed chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_bookshelf:
+                models = Models.BOOKSHELF;
+                Toast.makeText(getApplicationContext(), "bookshelf chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_shortcouch:
+                models = Models.COUCH;
+                Toast.makeText(getApplicationContext(), "Short Couch chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_fluffychair:
+                models = Models.FLUFFY_CHAIR;
+                Toast.makeText(getApplicationContext(), "Fluffy chair chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_longcouch:
+                models = Models.LONG_COUCH;
+                Toast.makeText(getApplicationContext(), "Long Couch chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_tvtable:
+                models = Models.TV_TABLE;
+                Toast.makeText(getApplicationContext(), "TV Table chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_arcademachine:
+                models = Models.ARCADE_MACHINE;
+                Toast.makeText(getApplicationContext(), "Arcade Machine chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_closet:
+                models = Models.CLOSET;
+                Toast.makeText(getApplicationContext(), "Closet chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_cornertable:
+                models = Models.CORNER_TABLE;
+                Toast.makeText(getApplicationContext(), "Corner Table chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_drums:
+                models = Models.DRUMS;
+                Toast.makeText(getApplicationContext(), "Drums chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_gardenbench:
+                models = Models.GARDEN_BENCH;
+                Toast.makeText(getApplicationContext(), "Garden Bench chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_hangingdesk:
+                models = Models.WALL_DESK;
+                Toast.makeText(getApplicationContext(), "Hanging desk chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_minibar:
+                models = Models.BREAKFAST_BAR;
+                Toast.makeText(getApplicationContext(), "Mini Bar  chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_piano:
+                models = Models.PIANO;
+                Toast.makeText(getApplicationContext(), "Piano chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_singlebed:
+                models = Models.SM_BED;
+                Toast.makeText(getApplicationContext(), "Single Bed chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_woodentable:
+                models = Models.WOODEN_TABLE;
+                Toast.makeText(getApplicationContext(), "Wooden Table chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_smallcloset:
+                models = Models.SM_CLOSET;
+                Toast.makeText(getApplicationContext(), "Small Closet chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_tennistable:
+                models = Models.TABLE_TENNIS_TABLE;
+                Toast.makeText(getApplicationContext(), "Tennis Table chosen", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.nav_wallshelf:
+                models = Models.WALL_SHELF;
+                Toast.makeText(getApplicationContext(), "Wall Shelf chosen", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+    //@Override
+    /*public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         switch (id){
@@ -295,9 +452,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
-        drawerLayout.closeDrawer(GravityCompat.START);
+        //drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
+    }*/
+
     private void storyyyy(){
         Intent intent3 = new Intent(getApplicationContext(),Getting_started.class);
         startActivity(intent3);
@@ -305,7 +463,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toast.makeText(getApplicationContext(),"About page",Toast.LENGTH_LONG).show();
     }
 
-    private void iii(){
+/*    private void iii(){
         Intent intent2 = new Intent(getApplicationContext(),Items_selected.class);
         intent2.putExtra("count",countdesk);
         intent2.putExtra("count2",countarmchair);
@@ -315,30 +473,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent2);
         finish();
         Toast.makeText(getApplicationContext(),"Items placed",Toast.LENGTH_LONG).show();
-    }
+    }*/
 
-    private void navigationDrawer() {
+    /*private void navigationDrawer() {
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_bookshelf);
 
-        /*menuIcon.setOnClickListener(v -> {
+        *//*menuIcon.setOnClickListener(v -> {
             if (drawerLayout.isDrawerVisible(GravityCompat.START))
                 drawerLayout.closeDrawer(GravityCompat.START);
             else drawerLayout.openDrawer(GravityCompat.START);
-        });*/
-    }
+        });*//*
+    }*/
 
 
-    @Override
-    public void onBackPressed() {
+    //@Override
+   /* public void onBackPressed() {
         if (drawerLayout.isDrawerVisible(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START);
         else
             super.onBackPressed();
 
-    }
-
+    }*/
     private void placeChair(Anchor anchor) {
         ModelRenderable.builder().setSource(this, Uri.parse("Armchair.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable)).exceptionally(throwable -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -371,13 +528,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    private void placeComputer(Anchor anchor) {
-        ModelRenderable.builder().setSource(this, Uri.parse("computer_chair.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable)).exceptionally(throwable -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(throwable.getMessage()).show();
-            return null;
-        });
-    }
 
     private void placeCornerTable(Anchor anchor) {
         ModelRenderable.builder().setSource(this, Uri.parse("corner_table.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable)).exceptionally(throwable -> {
@@ -451,13 +601,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    private void placeWoodenChair(Anchor anchor) {
-        ModelRenderable.builder().setSource(this, Uri.parse("wood_chair.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable)).exceptionally(throwable -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(throwable.getMessage()).show();
-            return null;
-        });
-    }
 
     private void placeWoodenTable(Anchor anchor) {
         ModelRenderable.builder().setSource(this, Uri.parse("wood_table.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable)).exceptionally(throwable -> {
@@ -526,6 +669,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+    private void removelastAnchorNode() {
+        //Remove an anchor node
+        List<Node> children = new ArrayList<>(arFragment.getArSceneView().getScene().getChildren());
+        Node x = children.get(children.size() - 1);
+        if (x instanceof AnchorNode) {
+            if (((AnchorNode) x).getAnchor() != null) {
+                Objects.requireNonNull(((AnchorNode) x).getAnchor()).detach();
+            }
+        }
+        if (!(x instanceof Camera) && !(x instanceof Sun)) {
+            x.setParent(null);
+        }
+        countdesk=0;
+        countarmchair=0;
+        countbed=0;
+        countbookshelf=0;
+        countshortcouch=0;
+    }
 
     private void removeAnchorNode() {
         //Remove an anchor node
