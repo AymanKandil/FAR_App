@@ -10,7 +10,6 @@ This was a project for my Mobile Computing class where Bader Al-Jumaah and I dev
 The project uses the following technologies:
   - AR CORE by Google
   - Sceneform by google
-  - Firebase
   - AppIntro by [@cortinico](https://github.com/cortinico) and [@paolorotolo](https://github.com/paolorotolo)
 
 # Features
@@ -18,7 +17,6 @@ The project uses the following technologies:
 
   - Easy AR object placement
   - Simple and Clean UI
-  - Safe and Secure with firebase login feature
   - Realistic virtual furniture from Poly.google.com
 
 # License
