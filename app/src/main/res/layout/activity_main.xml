@@ -33,20 +33,23 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         />
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/extclearfab"
-    android:layout_margin="8dp"
-    app:iconTint="#F4DD0E"
-    android:textColor="#F4DD0E"
-    app:strokeColor="#F4DD0E"
-    app:strokeWidth="4dp"
-    android:backgroundTint="@android:color/white"
-    app:icon="@drawable/ic_baseline_clear_24"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentBottom="true"
-    />
+        android:id="@+id/extclearfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/white"
+        android:text="Clear All"
+        android:textColor="#F4DD0E"
+        app:iconTint="#F4DD0E"
+        app:strokeColor="#F4DD0E"
+        app:strokeWidth="4dp" />
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
